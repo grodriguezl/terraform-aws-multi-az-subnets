@@ -84,9 +84,10 @@ resource "aws_route_table" "public" {
     },
   )
 }
+  
 
 resource "aws_route" "public" {
-  for_each = local.public_azs
+  for_each = {for k, v in local.public_azs : k => v if var.igw_route_enabled}
 
   route_table_id         = aws_route_table.public[each.key].id
   gateway_id             = var.igw_id
