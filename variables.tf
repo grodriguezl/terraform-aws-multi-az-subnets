@@ -136,5 +136,5 @@ variable "ipv6_cidr_block" {
 variable "igw_route_enabled" {
   type        = bool
   description = "Flag to enable/disable default route"
-  default     = false
+  default     = true
 }
